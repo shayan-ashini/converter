@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>convertor</title>
+</head>
+
+<body>
+
+    <div class="bigbox">
+        <div class="top-head">
+            <h2>Enter your value in gram</h2>
+            <input id="input" type="text" autofocus placeholder="Enter Your Value">
+        </div>
+
+        <div class="main-head">
+            <h2>convert to : </h2>
+            <select name="" id="select">
+                <option value="kilograms">Kilograms</option>
+                <option value="pounds">Pounds</option>
+                <option value="Ounces">Ounces</option>
+                <option value="tons">Tons</option>
+            </select>
+
+        </div>
+
+        <button id="btn">convert</button>
+        <button id="btn-2">Reset</button>
+
+
+        <div class="result"></div>
+
+
+
+    </div>
+
+
+    <script>
+        let btn = document.getElementById('btn')
+        let reset = document.getElementById('btn-2')
+
+        reset.addEventListener('click' , function(){
+            let res = document.getElementsByClassName('result')[0]
+            res.innerHTML = ''
+            document.getElementById('input').value =null
+        })
+
+
+        btn.addEventListener('click', function () {
+
+            let val = document.getElementById('input').value
+            let _val = document.getElementById('select').value
+            let res = document.getElementsByClassName('result')[0]
+
+            if(_val=='kilograms'){
+
+               let x = val*10**-3
+               res.innerHTML='<h3> '+x.toFixed(3)+'</h3>'
+               
+               
+            }
+            else if(_val=='pounds'){
+                let y = val * 0.0022
+                res.innerHTML='<h3> '+y.toFixed(3)+'</h3>'
+            }
+            else if(_val=='Ounces'){
+                let z = val / 28.34952
+                res.innerHTML='<h3> '+z.toFixed(3)+'</h3>'
+            }
+            else if(_val=='tons'){
+                let v = val *1.1023*10**-6
+                res.innerHTML='<h3> '+v+'</h3>'
+            }
+            document.getElementById('input').value =null
+            
+             
+        })
+
+            
+
+
+    </script>
+
+</body>
+
+</html>
